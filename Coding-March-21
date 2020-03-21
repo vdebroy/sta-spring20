@@ -58,7 +58,6 @@ public class HelloWorld{
         
         System.out.println("I am done!!! " + a);
     }
-    //Hi
     public static int division3(int a, int b){
          if (b == 0){
             return 0;
