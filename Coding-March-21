@@ -18,9 +18,6 @@ public class HelloWorld{
         
         // Call our recursive Method
         recursiveMethod(5);
-        
-        //a--
-        //--a
      }
      
      public static double division(double a,double b){
