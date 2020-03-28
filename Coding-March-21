@@ -37,6 +37,16 @@ public class HelloWorld{
        System.out.println(division5(21,7));
        System.out.println(division5(100,9));
        System.out.println("END DIV 5");
+	System.out.println("BEGIN DIV 6");
+
+       System.out.println(division6(6,2,0));
+       System.out.println(division6(8,5,0));
+       System.out.println(division6(0,5,0));
+       System.out.println(division6(4,0,0));
+       System.out.println(division6(21,7,0));
+       System.out.println(division6(100,9,0));
+       System.out.println("END DIV 6");
+
        // Call our recursive Method
        //recursiveMethod(5);
     }
@@ -118,4 +128,13 @@ public class HelloWorld{
        int k = a / b;
        return k;
    }
+   public static int division6(int a, int b, int c){
+   	if(b == 0){
+	return 0;
+	}
+	if(a < b){
+	return c;
+	}
+	return division6(a-b,b,c+1);
+   } 
 }
