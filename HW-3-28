@@ -1,0 +1,12 @@
+Q1. In our session, we refactored slightly to handle the case when denominator is zero in just one place. But there is still a lot of code duplication.
+
+Can you reduce the duplication for this pattern:
+
+       if(b == 0){
+         return getResultWhenDenominatorIsZero();
+       }
+        if(a < b){
+            return 0;
+       }
+
+while not breaking correctness of your program.
