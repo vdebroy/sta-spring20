@@ -1,101 +1,121 @@
 public class HelloWorld{
 
-     public static void main(String []args){
-        System.out.println("Hello World");
-        System.out.println(division(5.0, 2.0));
-        System.out.println(division(5.0, 2.5));
-        System.out.println(division(5.0, 2.6));
-        System.out.println(division(5.0, 0.0));
-        
-        System.out.println(division2(7, 2));
-        System.out.println(division2(5, 3));
-        System.out.println(division2(7, 0));
-        System.out.println(division2(4, 7));
-        System.out.println(division3(7, 2));
-        System.out.println(division3(5, 3));
-        System.out.println(division3(7, 0));
-        System.out.println(division3(4, 7));
-        System.out.println(division4(6,2));
-        // Call our recursive Method
-        recursiveMethod(5);
-     }
-     
-     public static double division(double a,double b){
-        if (b == 0){
-            return 0;
-        }
-        else{
-            return a%b;
-        }
-        
-    }
-    public static int division2(int a, int b){
-        if (b == 0){
-            return 0;
-        }
-        
-        if (a < b) {
-            return a;
-        }
-        
-        // What if a > b?
-        int c = a;
-        while (c > b) {
-            c = c - b;
-        }
-        
-        return c;
+    public static void main(String []args){
+       System.out.println("Hello World");
+       System.out.println(division(5.0, 2.0));
+       System.out.println(division(5.0, 2.5));
+       System.out.println(division(5.0, 2.6));
+       System.out.println(division(5.0, 0.0));
+       
+       System.out.println(division2(7, 2));
+       System.out.println(division2(5, 3));
+       System.out.println(division2(7, 0));
+       System.out.println(division2(4, 7));
+       System.out.println("BEGIN DIV 3");
+       System.out.println(division3(7, 2));
+       System.out.println(division3(5, 3));
+       System.out.println(division3(7, 0));
+       System.out.println(division3(4, 7));
+
+       System.out.println("THIS IS ALL OUR NEW CODE: March 28");
+       System.out.println("BEGIN DIV 4");
+
+       System.out.println(division4(6,2));
+       System.out.println(division4(8,5));
+       System.out.println(division4(0,5));
+       System.out.println(division4(4,0));
+       System.out.println(division4(21,7));
+       System.out.println(division4(100,9));
+       System.out.println("END DIV 4");
+
+       System.out.println("BEGIN DIV 5");
+
+       System.out.println(division5(6,2));
+       System.out.println(division5(8,5));
+       System.out.println(division5(0,5));
+       System.out.println(division5(4,0));
+       System.out.println(division5(21,7));
+       System.out.println(division5(100,9));
+       System.out.println("END DIV 5");
+       // Call our recursive Method
+       //recursiveMethod(5);
     }
     
-    // Recursion is just a method that calls itself
-    // until a condition is met
-    
-    public static void recursiveMethod(int a) {
-        if (a > 0) {
-            System.out.println("I will call myself again: " + a);
-            recursiveMethod(a-1);
-        }
-        
-        System.out.println("I am done!!! " + a);
-    }
-    public static int division3(int a, int b){
-         if (b == 0){
-            return 0;
-        }
-        
-        if (a < b) {
-            return a;
-        }
-        return division3(a-b,b);
-        
-    }
-    public static int division4(int a,int b){
-        if(b == 0){
-            return 0;
-        }
-            
-        if(a < b){
-             return 0;
-        }
-           
-        int c = a;
-        int i = 0;
-        while(c>b){
-           c = c-b;
-           i++;
+    public static double division(double a,double b){
+       if (b == 0){
+           return 0;
        }
-       return i;
-     
-    } 
-    public static int division5(int a, int b){
-        if(b == 0){
+       else{
+           return a%b;
+       }
+       
+   }
+   public static int division2(int a, int b){
+       if (b == 0){
+           return 0;
+       }
+       
+       if (a < b) {
+           return a;
+       }
+       
+       // What if a > b?
+       int c = a;
+       while (c > b) {
+           c = c - b;
+       }
+       
+       return c;
+   }
+   
+   // Recursion is just a method that calls itself
+   // until a condition is met
+   
+   public static void recursiveMethod(int a) {
+       if (a > 0) {
+           System.out.println("I will call myself again: " + a);
+           recursiveMethod(a-1);
+       }
+       
+       System.out.println("I am done!!! " + a);
+   }
+   public static int division3(int a, int b){
+        if (b == 0){
+           return 0;
+       }
+       
+       if (a < b) {
+           return a;
+       }
+       return division3(a-b,b);
+       
+   }
+   public static int division4(int a,int b){
+       if(b == 0){
+           return 0;
+       }
+           
+       if(a < b){
             return 0;
-        }
-         if(a < b){
-             return 0;
-        }
-        int k = a / b;
-        return k;
-    }
-    }
+       }
+          
+       int c = a;
+       int i = 0;
+       while(c>=b){
+          c = c-b;
+          i++;
+      }
+      return i;
+    
+   } 
+   public static int division5(int a, int b){
+       if(b == 0){
+           return 0;
+       }
+        if(a < b){
+            return 0;
+       }
+       int k = a / b;
+       return k;
+   }
 }
