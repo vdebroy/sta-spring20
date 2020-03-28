@@ -10,3 +10,7 @@ Can you reduce the duplication for this pattern:
        }
 
 while not breaking correctness of your program.
+
+Q2. What we did in IncrementExamples.java - I want you to practice with decrement.
+
+Create a new file called DecrementExamples.java, upload it and test it with some different numbers. For example, set i to various things and run and observe the output.
