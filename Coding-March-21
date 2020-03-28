@@ -64,7 +64,7 @@ public class HelloWorld{
     
     public static double division(double a,double b){
        if (b == 0){
-           return 0;
+        return getResultWhenDenominatorIsZero();
        }
        else{
            return a%b;
@@ -73,7 +73,7 @@ public class HelloWorld{
    }
    public static int division2(int a, int b){
        if (b == 0){
-           return 0;
+         return getResultWhenDenominatorIsZero();
        }
        
        if (a < b) {
@@ -102,7 +102,7 @@ public class HelloWorld{
    }
    public static int division3(int a, int b){
         if (b == 0){
-           return 0;
+            return getResultWhenDenominatorIsZero();
        }
        
        if (a < b) {
@@ -113,7 +113,7 @@ public class HelloWorld{
    }
    public static int division4(int a,int b){
        if(b == 0){
-           return 0;
+        return getResultWhenDenominatorIsZero();
        }
            
        if(a < b){
@@ -131,7 +131,7 @@ public class HelloWorld{
    } 
    public static int division5(int a, int b){
        if(b == 0){
-           return 0;
+         return getResultWhenDenominatorIsZero();
        }
         if(a < b){
             return 0;
@@ -141,7 +141,7 @@ public class HelloWorld{
    }
    public static int division6(int a, int b, int c){
    	if(b == 0){
-	return 0;
+        return getResultWhenDenominatorIsZero();
 	}
 	if(a < b){
 	return c;
@@ -151,11 +151,15 @@ public class HelloWorld{
 
    public static int division7(int a, int b){
     if(b == 0){
-        return 0;
+        return getResultWhenDenominatorIsZero();
     }
     if(a < b){
      return 0;
     }
     return 1 + division7(a-b,b);
-    }      
+    } 
+    
+    public static int getResultWhenDenominatorIsZero() {
+        return -10;
+    }
 }
