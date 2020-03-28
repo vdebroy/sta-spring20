@@ -47,6 +47,17 @@ public class HelloWorld{
        System.out.println(division6(100,9,0));
        System.out.println("END DIV 6");
 
+
+       System.out.println("BEGIN DIV 7");
+
+       System.out.println(division7(6,2));
+       System.out.println(division7(8,5));
+       System.out.println(division7(0,5));
+       System.out.println(division7(4,0));
+       System.out.println(division7(21,7));
+       System.out.println(division7(100,9));
+       System.out.println("END DIV 7");
+
        // Call our recursive Method
        //recursiveMethod(5);
     }
@@ -137,4 +148,14 @@ public class HelloWorld{
 	}
 	return division6(a-b,b,c+1);
    } 
+
+   public static int division7(int a, int b){
+    if(b == 0){
+        return 0;
+    }
+    if(a < b){
+     return 0;
+    }
+    return 1 + division7(a-b,b);
+    }      
 }
