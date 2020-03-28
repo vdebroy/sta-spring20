@@ -84,6 +84,7 @@ public class HelloWorld{
            c = c-b;
            i++;
        }
+       return i;
      
     } 
     public static int division5(int a, int b){
