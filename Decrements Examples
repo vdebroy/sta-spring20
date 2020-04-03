@@ -1,0 +1,24 @@
+public class DecrementExamples{
+
+     public static void main(String []args){ 
+     
+        int i = 100;
+        System.out.println(i--);
+        // Prints 100
+        System.out.println(i);
+        // Prints 99
+        System.out.println(--i);
+        // Prints 98
+        //System.out.println(--i--);
+        //Doesn't work  Compilation Error
+        
+        //System.out.println((--i)--);
+        // This also doesn't work
+        
+        System.out.println(5--);
+        //This won't work
+        
+        
+        
+     }
+}
