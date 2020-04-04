@@ -72,13 +72,7 @@ public class HelloWorld{
        
    }
    public static int division2(int a, int b){
-       if (b == 0){
-         return getResultWhenDenominatorIsZero();
-       }
-       
-       if (a < b) {
-           return a;
-       }
+      easierWayForDivision(a,b);
        
        // What if a > b?
        int c = a;
@@ -161,5 +155,15 @@ public class HelloWorld{
     
     public static int getResultWhenDenominatorIsZero() {
         return -10;
+    }
+    public static int easierWayForDivision(int a, int b){
+         if(b == 0){
+        return getResultWhenDenominatorIsZero();
+       }
+           
+       if(a < b){
+            return 0;
+       }
+        return a & b;
     }
 }
