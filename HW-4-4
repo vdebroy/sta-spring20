@@ -1,0 +1,14 @@
+Q1. Look at our current code for SimpleConversion.java
+
+and finish it such that the actual number is produced. You can use this logic
+
+9
+8
+7
+5
+
+If I know the length...
+
+5 + 7 * 10 + 8 * 100 + 9 * 1000
+
+Q2. Think about Exceptions and write another program from scratch that can lead to an Exception and handle it. You can use division by zero again, or better yet...look back at our Scanner Examples....for example 'nextInt, nextDouble' and so on...those generate Exceptions too!
