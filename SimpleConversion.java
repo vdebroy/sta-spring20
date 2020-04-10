@@ -90,7 +90,7 @@ public class SimpleConversion{
                 char currentCharacter = y.charAt(i);
 
                 //System.out.println(currentCharacter);
-                System.out.println(getIntFromChar(currentCharacter));
+                System.out.print(getIntFromChar(currentCharacter));
             }
         }
 
@@ -108,7 +108,7 @@ public class SimpleConversion{
             System.out.println("The world doesn't make sense anymore!");
             System.out.println("You're trying to play me " +inputChar +" is not a digit...I QUIT!");
             //System.exit(0);
-            return -1;
+            return -1 ;
         }else {
             return convertedDigit - 48;
         }
