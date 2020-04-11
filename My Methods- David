@@ -1,0 +1,78 @@
+public class HelloWorld{
+
+     public static void main(String []args){
+        System.out.println("Hello World");
+        System.out.println(IsItANumber('4'));
+        System.out.println(IsItANumber('f'));
+        System.out.println(Division(15,5));
+        System.out.println(Division(0,5));
+        try{
+            System.out.println(Division(6,0));
+        }
+        catch(Exception ex){
+            System.out.println("Oh no you divided by zero");    
+        }
+        System.out.println();
+        PrintBasedOnResult(PositiveOrNegative("3456789"));
+        PrintBasedOnResult(PositiveOrNegative("-456"));
+        PrintBasedOnResult(PositiveOrNegative("-+456"));
+        System.out.println(EvenOrOdd("345"));
+        System.out.println(EvenOrOdd("4"));
+        PrintString("345678");
+    }
+     public static int Division(int a, int b){
+    
+        int c = a/b;
+        return c;
+            
+    }
+    public static boolean PositiveOrNegative(String y){
+        int stringLength = y.length();
+        char currentCharacter = y.charAt(0);
+        if(currentCharacter == '-'){
+            return true;
+        }
+        else 
+            return false;
+    }
+    public static void PrintBasedOnResult(boolean d){
+        if (d == true){
+            System.out.println("It is a negative number");
+        }
+        else
+            System.out.println("It is a positive number");
+        
+    }
+    public static boolean IsItANumber(char a){
+        int convertedDigit = (int)a;
+        
+        // If our converted number is not between 48 and 57 inclusive...
+        // then its not a digit
+        
+        if (convertedDigit < 48 || convertedDigit > 57) {
+            return false;
+        }
+        else
+            return true;
+    }
+    public static boolean EvenOrOdd(String y){
+        
+        int stringLength = Integer.parseInt(y);
+        int d = stringLength%2;
+        if(d == 1){
+            return false;
+        }
+        else 
+            return true;
+        
+    }
+    public static void PrintString(String y){
+        int stringLength = y.length();
+        for(int i = y.length() - 1; i >= 0 ; i--){
+            char currentCharacter = y.charAt(i);
+            System.out.println(currentCharacter);
+        }
+        
+    }
+     
+}
