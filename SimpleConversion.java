@@ -63,14 +63,19 @@ public class SimpleConversion{
         // A little testing
         System.out.println(getIntFromChar('0'));
         System.out.println(getIntFromChar('7'));
-        System.out.println(getIntFromChar('A'));
-        System.out.println(getIntFromChar('a'));
-        System.out.println(getIntFromChar('?'));
+        //System.out.println(getIntFromChar('A'));
+        //System.out.println(getIntFromChar('a'));
+        //System.out.println(getIntFromChar('?'));
         System.out.println(getIntFromChar('5'));
 
         //simpleStringToInt("Hello");
-        simpleStringToInt("56MaxiBoomBoom");
-        simpleStringToInt("9875");
+        //simpleStringToInt("56MaxiBoomBoom");
+        int result = simpleStringToInt("9875");
+        System.out.println(simpleStringToInt("546992"));
+        System.out.println(simpleStringToInt("0"));
+        System.out.println(simpleStringToInt("12345678900987654323456789"));
+        System.out.println("------");
+        System.out.println(result);
         //simpleStringToInt("");
     }
     public static int simpleStringToInt(String y){
@@ -85,16 +90,24 @@ public class SimpleConversion{
         // Let's loop over each character...in the String
         // which can be thought of as an array of characters
 
+        int actualNumber = 0;
+
         if (stringLength > 0) {
             for (int i=0;i < stringLength;i++) {
                 char currentCharacter = y.charAt(i);
 
                 //System.out.println(currentCharacter);
-                System.out.print(getIntFromChar(currentCharacter));
+                int integerRepresentationOfCharacter = getIntFromChar(currentCharacter);
+
+                //9875
+                actualNumber = actualNumber + integerRepresentationOfCharacter * (int)(Math.pow(10, stringLength - i -1));
+
+                System.out.print(integerRepresentationOfCharacter);
             }
         }
 
-        return 0;
+        //return 0;
+        return actualNumber;
     }
 
     public static int getIntFromChar(char inputChar) {
