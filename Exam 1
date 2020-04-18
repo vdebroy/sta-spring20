@@ -42,6 +42,15 @@
       if(i == 0){
       return true;
       }
+      else
+        return false;
     }
-  
+    
+    int j = y/x;
+    if( j == 0){
+      return true;
+    }
+    else
+      return false;
    }
+   
