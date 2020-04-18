@@ -1,0 +1,165 @@
+1
+CS 2336 Exam 1 – Fall 2018
+Duration: 75 minutes Maximum Points: 100
+Name:
+Student ID:
+Important Information:
+1. The exam consists of 10 pages in all. The last 2 pages are for scratch work.
+2. There are optional bonus questions.
+3. This is a closed note, closed book exam, NO COMPUTERS ARE ALLOWED. A single standard letter-sized cheat sheet is allowed, which must be submitted with the Exam.
+4. Please write legibly and provide explanations when asked. Unjustified results will receive zero credit.
+True or False: (30 points)
+1. Java programs need to be compiled before they are executed.
+T F
+2. One of the disadvantages of Java is that it is not portable – programs need to be recompiled whenever run on a different machine.
+T F
+3. Every Java class needs to have a main method.
+T F
+4. Classes can only have one constructor.
+T F 5. The static keyword is used when we want to assign a variable a value only once.
+T F
+6. A constructor that accepts one parameter is called the default constructor.
+T F
+7. With respect to try/catch blocks, the code in a finally block executes whether or not an Exception is thrown in the try block or not, or whether it was caught or not.
+T F
+8. Declaring a variable inside a method allows it to be accessed outside the method.
+T F
+9. The size of an ArrayList must be specified when creating a new instance.
+T F
+10. All Exceptions represent syntactical errors where Java cannot compile our program.
+T F
+11. A ragged array is a one-dimensional array where each element in the array is not assigned a default value.
+T F
+12. A statement such as System.out.println("Go to sleep class...not really".length()); will result in a compilation error.
+T F
+13. Multi-dimensional arrays must have an equal number of rows and columns.
+T F
+14. A statement such as int x = (int)(11.5); results in a compilation error because doubles cannot fit into integers.
+T F
+15. Statement System.out.println(Character.isDigit('a')); prints false.
+T F
+2
+Multiple Choice: (20 points) Mark all answers that are correct.
+1. Which of the following will legally declare, construct, and initialize an array in Java?
+A. int[] myList = {“1”, “2”, “3”};
+B. int[] myList = {5, 8, 2};
+C. int myList= {4, 9, 7, 0};
+D. int myList[][] = {4, 3, 2, 1};
+2. Given the statement int x = new int [10]; what can be determined? A. Every element in x has been assigned the value 0
+B. x has 9 elements in it
+C. Every element in x is of type int
+D. Every element in x has the value null
+3. A Constructor method is executed when _____.
+A. an object is created.
+B. an object is used.
+C. a class is declared.
+D. an object is assigned the value null
+4. Which of the following can be said about a static function?
+(1) It can be called without instantiating its containing class.
+(2) Its return type must be void.
+A. Only (1) is correct
+B. Only (2) is correct
+C. Both (1) and (2) are correct
+D. Both (1) and (2) are incorrect
+5. Which of the following is not true in the context of arrays.
+A. Their size is determined when the array is initialized.
+B. Every element in the array must be of the same type.
+C. If the array has N elements, the last index of the array is N - 1.
+D. Arrays are passed to methods by value.
+6. Consider some method with the signature ‘public void myMethod (int x)’ Which of the following would not be an example of overloading?
+3
+A. public void myMethod (double x)
+B. public void myMethod (int x, int y)
+C. public void yourMethod (int x)
+D. public void myMethod()
+7. Which of the following is not true? A. A class can have more than one constructor defined.
+B. A class need not define any constructor because Java provides a default/no-arg constructor.
+C. The name of the constructor should match the name of the class.
+D. A class can have constructors defined which take arguments without defining a default/no-arg constructor.
+8. Which of the following prints 5.0 to the screen?
+(1) System.out.println(10/2);
+(2) System.out.println((double)5);
+(3) System.out.println(Double.parseDouble(“5”));
+A. Options (1) and (2)
+B. Options (2) and (3)
+C. Options (1) and (3)
+D. Options (1), (2) and (3)
+9. Which of the following statements does not print AlphaBeta to the screen?
+A. System.out.println("Alpha" + "Beta");
+B. System.out.println("Alpha" + "" + "Beta");
+C. System.out.println("Alpha".concat("Beta"));
+D. System.out.println("Beta".concat("Alpha"));
+10. What would happen when we compiled and ran a program with the following code?
+double[] myList;
+myList = {1.9, 2.9, 3.4, 3.5};
+A. An array of doubles is created with 4 values: 1.9, 2.9, 3.4 and 3.5 respectively.
+B. The program wouldn’t compile because of a syntax error since per shorthand notation, arrays need to be declared, created and initialized all in one statement.
+C. We would have a run-time exception.
+D. None of the above.
+4
+Short Answer: (30 points)
+1. Given the class definition on the left, what will be the output of the code on the right? Write your answer in the space provided below. (5 points)
+class MyNewClass {
+public int x;
+public String toString() {
+return "Godzilla";
+}
+}
+MyNewClass mnc = new MyNewClass();
+System.out.println(mnc.x);
+System.out.println(mnc.toString());
+System.out.println(mnc);
+System.out.println((double)(mnc.x));
+MyNewClass mnc2 = new MyNewClass();
+System.out.println(mnc2 == null);
+2. What will the output of the following snippet of code be? Provide the answer on the right. (5 points)
+int i = -6;
+System.out.println(--i);
+System.out.println(i++);
+System.out.println(i++);
+System.out.println(i--);
+System.out.println(i++);
+3. Given the following code snippet, what will the output of the 2 statements below be? (2 points).
+int[][] arrayOfNumbers = {{5},{6,7,8}};
+Statements
+Output
+System.out.print(arrayOfNumbers.length);
+System.out.print(arrayOfNumbers[arrayOfNumbers.length -1].length);
+5
+4. Given the method on the left, what will be the output of the code on the right? Write your answer and justify it (explain why) in the space provided below. (3 points)
+public void someMethod (int[] a) {
+a[0] = a.length;
+}
+int[] someArray = new int[] {4,3,2};
+System.out.println(someArray[0]);
+someMethod(someArray);
+System.out.println(someArray[0]);
+Output:
+5. The code below is supposed to calculate the sum of all of the elements in a two-dimensional array. Unfortunately, there is a bug. Under what circumstances could we get the wrong output or an error and how can the code be fixed? Write your answer in the space provided: you do not need to re-write the entire method – just explain the problem and show the changes. (5 points)
+public int getTotal (int[][] matrix) {
+int total = 0;
+for (int row = 0; row < matrix.length; row++) {
+for (int column = 0; column < matrix.length; column++) {
+total += matrix[row][column];
+}
+}
+return total;
+}
+6
+6. Describe in your own words what ‘pass by value’ and ‘pass by reference’ mean. Provide examples of each. (10 points)
+7
+Coding: (20 points)
+Q1. Write a method that takes 2 strings and determines if any one is an all uppercase or all lowercase version of the other. (10 points)
+Q2. Write a method that takes 2 integers and returns if any one is a perfect divisor of the other or not. Hint: a perfect divisor is one that leaves no remainder. (10 points)
+8
+Bonus Questions [The maximum possible score for the exam remains 100]
+Q1. Which of the following is true of Bubble sort (the way it was discussed in class with an inner loop and an outer loop)? The order (i.e., ascending/descending) is irrelevant. (2 points)
+A. The swapping happens in the outer loop and not the inner loop.
+B. At least one swap operation must occur in either the outer or the inner loop.
+C. If the array has N elements, at most N-1 swaps can happen.
+D. If in any iteration of the outer loop, no swapping occurs in the inner loop, then the array has been sorted.
+Q2. Write the code for a method that takes as input an integer, and does not return anything, but prints whether the integer was even or odd. (3 points)
+9
+Scratch Paper:
+10
+Scratch Paper:
