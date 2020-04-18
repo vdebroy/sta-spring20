@@ -53,4 +53,15 @@
     else
       return false;
    }
+   Bonus 2
+   public static void EvenOrOdd(int a){
+    int i = a/2;
+    if (i == 0){
+      System.out.println(a + " is even.");
+    }
+    else{
+    System.out.println(a + " is odd. ");
+     }
    
+   
+   }
