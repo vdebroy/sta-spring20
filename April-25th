@@ -35,6 +35,15 @@ public class HelloWorld{
         
         // Ascending order is least to Most
         // In our case.... 1, 5, 6, 7, 10
+        System.out.println(getSmallest(y));
+        
+        // Let's test our getSmallestMethodSomeMore
+        System.out.println("Begin Testing getSmallest");
+        System.out.println(getSmallest(new int[] {1}));
+        System.out.println(getSmallest(new int[] {1,100}));
+        System.out.println(getSmallest(new int[] {-101,100}));
+        System.out.println(getSmallest(new int[] {-101,-99100,55}));
+        System.out.println("End Testing getSmallest");
         
         printArraySortedAscending(y);
      }
@@ -63,8 +72,17 @@ public class HelloWorld{
      // How about a method that returns the smallest number in an array?
      
      public static int getSmallest(int[] inputArray) {
-         
+        int smallestNumber = inputArray[0]; 
          // How do we find the smallest?
+        //for(int i = 0; i < inputArray.length; i++){
+        // Why start at 0...we would be comparing the number to itself
+        for(int i = 1; i < inputArray.length; i++){
+            if(smallestNumber > inputArray[i]){
+                smallestNumber = inputArray[i];
+            }
+        } 
+            
+        return smallestNumber;
          
      }
      
