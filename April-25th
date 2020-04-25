@@ -8,7 +8,6 @@ public class HelloWorld{
         
         int[] x = new int[4];
         
-        
         // A single line comment
         
         /*
@@ -16,34 +15,40 @@ public class HelloWorld{
         */
         
         //Just a quick revisiting of arrays
-        System.out.println(x.length);
-        
-        for(int i=0; i < x.length; i++) {
-            System.out.println(x[i]);
-        }
-       
-        
+        printAnArray(x);
+        System.out.println("David....printing an array as-is...prints the memory address, not the contents of an array");
+        System.out.println(x);
+
         System.out.println(" ---- Now another array");
         
         int[] y = new int[] {10,5,6,7,1};
         
-        System.out.println(y.length);
-        
-        for(int i=0; i < y.length; i++) {
-            System.out.println(y[i]);
-        }
+        printAnArray(y);
         
         // Ascending order is least to Most
         // In our case.... 1, 5, 6, 7, 10
-        System.out.println(getSmallest(y));
+        //System.out.println(getSmallest(y));
         
-        // Let's test our getSmallestMethodSomeMore
+        // Let's test our getSmallest
         System.out.println("Begin Testing getSmallest");
         System.out.println(getSmallest(new int[] {1}));
         System.out.println(getSmallest(new int[] {1,100}));
         System.out.println(getSmallest(new int[] {-101,100}));
         System.out.println(getSmallest(new int[] {-101,-99100,55}));
         System.out.println("End Testing getSmallest");
+        
+        System.out.println("Begin Testing getSmallestIndex");
+        System.out.println(getSmallestIndex(new int[] {1}));
+        System.out.println(getSmallestIndex(new int[] {1,100}));
+        System.out.println(getSmallestIndex(new int[] {-101,100}));
+        System.out.println(getSmallestIndex(new int[] {-101,-99100,55}));
+        System.out.println("End Testing getSmallestIndex");
+        
+        System.out.println("Begin Testing getArrayWithElementRemoved");
+        printAnArray(getArrayWithElementRemoved(new int[] {1,100}, 0));
+        printAnArray(getArrayWithElementRemoved(new int[] {-11,2000}, 1));
+        printAnArray(getArrayWithElementRemoved(new int[] {-115,1,2,45,2000}, 3));
+        System.out.println("End Testing getArrayWithElementRemoved");
         
         printArraySortedAscending(y);
      }
@@ -62,6 +67,13 @@ public class HelloWorld{
          
          // This is what you need to do now David!
          
+         // Loop over the array
+         // Use the method (A) we just wrote to print out the smallest element
+         // Use the method (B) we just wrote to get the array with the 
+         // smallest element removed
+         // Then call A again with the result from B
+         // And so on?
+         
      }
      
      // David being creative
@@ -70,6 +82,14 @@ public class HelloWorld{
      // and so on...
      
      // How about a method that returns the smallest number in an array?
+     // So we implemented getSmallest
+     
+     // What if we called this method with the original array
+     //     Printed the result
+     //     Called the method again with the same array except we removed
+     //     the smallest number
+     // And then kept going till there were no more elements
+     // Then we would be printing the smallest everytime?
      
      public static int getSmallest(int[] inputArray) {
         int smallestNumber = inputArray[0]; 
@@ -83,7 +103,54 @@ public class HelloWorld{
         } 
             
         return smallestNumber;
-         
      }
      
+     // Now let's just return the 'index/position of the smallest number'
+     
+    public static int getSmallestIndex(int[] inputArray) {
+        int smallestIndex = 0;
+        int smallestNumber = inputArray[0]; 
+         // How do we find the smallest?
+        //for(int i = 0; i < inputArray.length; i++){
+        // Why start at 0...we would be comparing the number to itself
+        for(int i = 1; i < inputArray.length; i++){
+            if(smallestNumber > inputArray[i]){
+                smallestNumber = inputArray[i];
+                smallestIndex = i;
+            }
+        } 
+            
+        return smallestIndex;
+     }
+     
+     public static int[] getArrayWithElementRemoved(int[] inputArray, int indexToRemove) {
+        // Because we remove an element
+        int sizeOfArrayToBeReturned = inputArray.length - 1;
+        
+        // Homework for you.....what if the array only has one element
+        // Homework for you....what if indexToRemove is larger than the length
+        
+        int[] arrayToBeReturned = new int[sizeOfArrayToBeReturned];
+        int currentPosition = 0;
+        
+        for(int i=0; i< inputArray.length;i++) {
+            
+            if (i != indexToRemove) {
+                arrayToBeReturned[currentPosition++] = inputArray[i];
+            }
+        }
+        
+        return arrayToBeReturned;
+     }
+     
+     public static void printAnArray(int[] inputArray){
+        System.out.println("Num elements: "+ inputArray.length);
+        
+        for(int i=0; i < inputArray.length; i++) {
+            System.out.print(inputArray[i] + " ");
+        }
+        
+        // Just move things to the next line
+        System.out.println("");
+     }
 }
