@@ -74,6 +74,21 @@ public class HelloWorld{
          // Then call A again with the result from B
          // And so on?
          
+         int g = -1;
+         for (int i = 0;i < inputArray.length; i++){
+             
+             if (i == 0) { 
+                g = getSmallestIndex(inputArray);
+                System.out.println(inputArray[g]);
+             }else {
+                 //System.out.println(inputArray.length + " -----" + g);
+                 int[] x = getArrayWithElementRemoved(inputArray,g);
+                 printAnArray(x);
+                 g = getSmallestIndex(x);
+             }            
+            
+         }
+         
      }
      
      // David being creative
