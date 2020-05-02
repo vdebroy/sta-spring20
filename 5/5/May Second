@@ -48,27 +48,36 @@ public class HelloWorld{
         // duplication (of code) as much as possible
      }
      public static int FindLargestNumber(int[] inputArray){
-        int x = inputArray[0];
-        for(int y = 1; y < inputArray.length; y++){
-            if(x < inputArray[y]){
-                x = inputArray[y];
-            }
-                
-        }
-        return x;
+
+        return FindLargestOrSmallest(inputArray, "largest");
         
      }
      public static int FindSmallestNumber(int[] inputArray){
+
+        return FindLargestOrSmallest(inputArray, "smallest");        
+     }
+     
+     
+     public static int FindLargestOrSmallest(int [] inputArray, String whichOne) {
+         
         int x = inputArray[0];
         for(int y = 1; y < inputArray.length; y++){
-            if(x > inputArray[y]){
-                x = inputArray[y];
+            boolean shouldXSwitch = false;
+            if (whichOne == "largest" && x < inputArray[y]) {
+                shouldXSwitch = true;
+            } else {
+                if(x > inputArray[y]){
+                    shouldXSwitch = true;                    
+                }
             }
-                
+            
+            if (shouldXSwitch == true )
+                x = inputArray[y];
         }
+         
         return x;
-        
      }
+     
      public static double AverageOfArray(int[] inputArray){
         double x = 0;
         for(int y = 0; y < inputArray.length;y++){  
@@ -82,4 +91,5 @@ public class HelloWorld{
          
          
      }
+
 }
