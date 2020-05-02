@@ -140,6 +140,10 @@ public class HelloWorld{
      
      public static int[] getArrayWithElementRemoved(int[] inputArray, int indexToRemove) {
         // Because we remove an element
+        
+        if(inputArray.length == 1){
+          return inputArray;
+        }
         int sizeOfArrayToBeReturned = inputArray.length - 1;
         
         // Homework for you.....what if the array only has one element
