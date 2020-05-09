@@ -1,0 +1,96 @@
+public class HelloWorld{
+
+     public static void main(String []args){
+        System.out.println("Hello World");
+        
+        System.out.println(reverseString("Hello"));
+        System.out.println(reverseString("David"));
+        System.out.println(reverseString("ABCBA"));
+        
+        
+        String s1 = "Hello";
+        String s2 = "Kitty";
+        String s3 = "Kitty";
+        String s4 = "Davids";
+        
+        
+        System.out.println(s1 == s2);
+        System.out.println(s3 == s2);
+        
+        System.out.println(s3.equals(s2));
+        System.out.println(s2.equals(s3));
+        System.out.println(PalindromeOrNot("dsfjsdakf"));
+        System.out.println(PalindromeOrNot("123454321"));
+        
+        System.out.println(" ---------- ");
+        
+        System.out.println(s1.substring(0,s1.length()/2));
+        System.out.println(s4.substring(0,s4.length()/2));
+        
+        System.out.println(s1.substring(s1.length()/2 + 1, s1.length()));
+        System.out.println(s4.substring(s4.length()/2, s4.length()));
+        
+        
+        System.out.println(" ---------- ");
+        System.out.println(anotherPalindromeChecker("dsfjsdakf"));
+        System.out.println(anotherPalindromeChecker("123454321"));
+        System.out.println(anotherPalindromeChecker("BANA"));
+        System.out.println(anotherPalindromeChecker("BANAB"));
+        System.out.println(anotherPalindromeChecker("BANNAB"));
+        
+     }
+     
+     public static String reverseString (String input) {
+         
+         String reversedString = "";
+         
+         for (int i=input.length()-1; i>=0;i--) {
+             reversedString = reversedString + input.charAt(i); 
+         }
+         
+         return reversedString;
+         
+     }
+     
+     public static boolean PalindromeOrNot(String y){
+         
+        String x = reverseString(y);
+        return x.equals(y);
+        
+        //return y.equals(reverseString(y));
+         
+     }
+     
+     public static boolean anotherPalindromeChecker (String y){
+        boolean isPalindrome = true;
+        
+        int j = y.length()-1;
+        
+        for(int i =0; i< y.length()/2; i++) {
+            
+            System.out.println(y.charAt(i) + " <----> " + y.charAt(j));
+            if (y.charAt(i) != y.charAt(j)) {
+                isPalindrome = false;
+                return isPalindrome;
+            }
+            
+            j--;
+        }
+        
+        return isPalindrome;
+     }
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+}
