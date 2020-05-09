@@ -1,0 +1,22 @@
+Grid
+Players - different symbols (X and O)
+Turns
+Winner -- 3 in a row or column or diagonal
+  Is there always a winner? Nope
+  
+  Two possible ways for game to end?
+    - Someone wins
+    - Grid is full?
+
+What kind of methods would be useful?
+How would you represent the grid?
+  -- Array kind of makes sense?
+  
+  Print out the board - using a line, and symbols 
+  
+  X | X | O
+  X |   | O
+  O | X | 
+  
+  Print the Game Board
+  Is The Move Valid
