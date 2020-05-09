@@ -95,19 +95,16 @@ public class HelloWorld{
         }
         
         return isPalindrome;
-     }
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
+     }   
 }
+
+
+// Homework
+// Write a method that checks if a number is a palindrome
+// instead of "12321"
+// it would take 12321
+// You can assume integers
+
+// Google '2-dimensional arrays'
+
+// Try and think of how to use our code in some 'word-based game'
