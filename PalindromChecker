@@ -21,6 +21,9 @@ public class HelloWorld{
         System.out.println(s2.equals(s3));
         System.out.println(PalindromeOrNot("dsfjsdakf"));
         System.out.println(PalindromeOrNot("123454321"));
+        System.out.println("+++++ DAVID'S METHOD ++++");
+        System.out.println(PalindromeOrNot("BANAb"));
+        System.out.println(PalindromeOrNot("BANnaB"));        
         
         System.out.println(" ---------- ");
         
@@ -38,6 +41,17 @@ public class HelloWorld{
         System.out.println(anotherPalindromeChecker("BANAB"));
         System.out.println(anotherPalindromeChecker("BANNAB"));
         
+        System.out.println(" ---------- ");
+        
+        System.out.println(anotherPalindromeChecker("BANAb"));
+        System.out.println(anotherPalindromeChecker("BANnaB"));   
+        
+        
+        System.out.println("******************");
+        
+        String s5 = "" + 'c';
+        System.out.println(s5);
+        
      }
      
      public static String reverseString (String input) {
@@ -53,9 +67,12 @@ public class HelloWorld{
      }
      
      public static boolean PalindromeOrNot(String y){
-         
+        
+        
+        
         String x = reverseString(y);
-        return x.equals(y);
+     
+        return x.equalsIgnoreCase(y);
         
         //return y.equals(reverseString(y));
          
@@ -63,13 +80,13 @@ public class HelloWorld{
      
      public static boolean anotherPalindromeChecker (String y){
         boolean isPalindrome = true;
-        
+        String x = y.toLowerCase();
         int j = y.length()-1;
         
         for(int i =0; i< y.length()/2; i++) {
             
             System.out.println(y.charAt(i) + " <----> " + y.charAt(j));
-            if (y.charAt(i) != y.charAt(j)) {
+            if (x.charAt(i) != x.charAt(j)) {
                 isPalindrome = false;
                 return isPalindrome;
             }
