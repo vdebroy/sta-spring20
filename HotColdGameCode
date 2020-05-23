@@ -1,12 +1,55 @@
 public class HelloWorld{
 
      public static void main(String []args){
-         
-        int[][] twoDimensionalArray = new int [7][7];
+        
+        // Assume a square board
+        // Assume an odd number
+        int boardSize = 7;
+        
+        // Starting position of player
+        // at center cell
+        int playerX = boardSize/2;
+        int playerY = boardSize/2;
+        
+        
+        // Must not allow goalX and goalY to be the same as playerX and playerY
+        int goalX = getRandomNumberWithinMax(boardSize);
+        int goalY = getRandomNumberWithinMax(boardSize);
+        
+        // HW 1
+        // Write the code to generate goalX and goalY such that
+        // we ensure its not the same as playerX and playerY
+        
+        // Condition we want to avoid
+        // (goalX == playerX && goalY == playerY)
+        
+        // HW2
+        // You know how to take inputs from the User now
+        // imagine taking the move from the user:
+        // w is up
+        // a is left
+        // s is down
+        // d is right
+        
+        // How to tell the User we're at the edge?
+        
+        // HW 3
+        // Use the manhattan distance function
+        // to tell the user 'hotter or colder'
+        
+        // HW 4 
+        // Decide when the game is over
+        
+        System.out.println(getCellFormattedString(goalX,goalY));
+        
+        
+        System.out.println("Player starts out at: " + getCellFormattedString(playerX,playerY));
+        
+        int[][] twoDimensionalArray = new int [boardSize][boardSize];
         
         for (int i=0; i<twoDimensionalArray.length;i++) {
             for(int j=0;j<twoDimensionalArray[i].length;j++) {
-                System.out.print(i + "," + j + " ");
+                System.out.print(getCellFormattedString(i,j) + " ");
             }
             System.out.println();
         }
@@ -26,5 +69,23 @@ public class HelloWorld{
 
         // Just a one-liner
         //return Math.abs(x2 - x1) + Math.abs(y2 - y1);
+     }
+     
+     public static String getCellFormattedString(int x, int y) {
+        return "(" + x + "," + y + ")";
+     }
+     
+     public static int getRandomNumberWithinMax(int max) {
+         // random gives us a number between 0 and 1
+         // multiple it by 10 and then convert that to an int
+         // and then we lose the fractional part
+         int randomNumber = (int)(Math.random() * 10);
+         
+         if (randomNumber > max -1) {
+             randomNumber = randomNumber - max;
+         }
+         
+         return randomNumber;
+     
      }
 }
