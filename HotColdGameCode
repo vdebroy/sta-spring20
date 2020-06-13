@@ -1,3 +1,4 @@
+import java.util.*;
 public class HelloWorld{
 
      public static void main(String []args){
@@ -33,13 +34,12 @@ public class HelloWorld{
         
         // How to tell the User we're at the edge?
         
-        // HW 3
-        // Use the manhattan distance function
-        // to tell the user 'hotter or colder'
-        
         // HW 4 
         // Decide when the game is over
         
+        System.out.println(HotterOrColder(0,0,1,1,2));
+        System.out.println(HotterOrColder(0,0,1,1,-5));
+        System.out.println(HotterOrColder(0,0,1,1,0));
         System.out.println(getCellFormattedString(goalX,goalY));
         
         
@@ -53,12 +53,49 @@ public class HelloWorld{
             }
             System.out.println();
         }
-        
+        System.out.println(gameOverOrNot(1,1,1,1));
+        System.out.println(gameOverOrNot(1,1,2,2));
         System.out.println(getManhattanDistance(0,0,0,0));
         System.out.println(getManhattanDistance(0,0,1,1));
         System.out.println(getManhattanDistance(0,0,0,3));
         System.out.println(getManhattanDistance(0,0,3,0));
         System.out.println(getManhattanDistance(1,1,3,3));
+        while(gameOverOrNot(playerX,playerY,goalx,goaly) != true){
+            
+            Scanner one = new Scanner(System.in);
+            System.out.println("Enter a move");
+            
+            //String userInput = one.nextLine(); 
+            String userInput = "W";
+            
+            char move = userInput.charAt(0);
+            System.out.println(move);
+            
+            if (move =='w' || move == 'W') {
+                if(playerY != 0){
+                    playerY++;
+                }
+            }
+            else if (move =='a' || move == 'A') {
+                if(playerX != 0){
+                    playerX--;
+                }
+            }
+            else if (move =='s' || move == 'S') {
+                if(playerY != boardSize - 1){
+                    playerY--;
+                }
+            }
+            else if (move =='d' || move == 'D') {
+                if(playerX != boardSize - 1){
+                    playerX++;
+                }
+            }else {
+                System.out.println("Whoops!");
+            }
+            System.out.println("Player is now at" + getCellFormattedString(playerX,playerY));
+        }
+        System.out.println("Good Job, You won!!!"); 
      }
      
      public static int getManhattanDistance(int x1, int y1, int x2, int y2) {
@@ -87,5 +124,21 @@ public class HelloWorld{
          
          return randomNumber;
      
+     }
+     public static String HotterOrColder(int futurex, int futurey, int goalx, int goaly,  int currentdistance){
+        int futuredistance = getManhattanDistance(futurex,futurey,goalx,goaly);
+        if(futuredistance > currentdistance){
+            return "Colder";
+        }
+        else
+            return "Hotter";
+         
+     }
+     public static boolean gameOverOrNot(int currentx,int currenty,int goalx,int goaly){
+         if(currentx == goalx || currenty == goaly){
+             return true;
+         }
+         else
+            return false;
      }
 }
