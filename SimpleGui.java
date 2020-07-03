@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.*; 
 import java.awt.*;
-public class SimpleGui implements KeyListener{
+public class SimpleGui {
 
     public static void main(String args[]){
 
@@ -11,6 +11,49 @@ public class SimpleGui implements KeyListener{
        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
        frame.setSize(500,500);
+
+       KeyListener listener = new KeyListener() {
+        @Override
+        public void keyPressed(KeyEvent event) {
+            printEventInfo("Key Pressed", event);
+        }
+        @Override
+        public void keyReleased(KeyEvent event) {
+            printEventInfo("Key Released", event);
+        }
+        @Override
+        public void keyTyped(KeyEvent event) {
+            printEventInfo("Key Typed", event);
+        }
+        private void printEventInfo(String str, KeyEvent e) {
+            System.out.println(str);
+            int code = e.getKeyCode();
+            System.out.println("   Code: " + KeyEvent.getKeyText(code));
+            System.out.println("   Char: " + e.getKeyChar());
+            int mods = e.getModifiersEx();
+            System.out.println("    Mods: "
+                    + KeyEvent.getModifiersExText(mods));
+            System.out.println("    Location: "
+                    + keyboardLocation(e.getKeyLocation()));
+            System.out.println("    Action? " + e.isActionKey());
+        }
+        private String keyboardLocation(int keybrd) {
+            switch (keybrd) {
+                case KeyEvent.KEY_LOCATION_RIGHT:
+                    return "Right";
+                case KeyEvent.KEY_LOCATION_LEFT:
+                    return "Left";
+                case KeyEvent.KEY_LOCATION_NUMPAD:
+                    return "NumPad";
+                case KeyEvent.KEY_LOCATION_STANDARD:
+                    return "Standard";
+                case KeyEvent.KEY_LOCATION_UNKNOWN:
+                default:
+                    return "Unknown";
+            }
+        }
+    };
+
 
        JPanel buttonPanel = new JPanel();
        JButton button1 = new JButton("Press");
@@ -43,7 +86,7 @@ public class SimpleGui implements KeyListener{
 
        //JTextArea outputTextArea = new JTextArea(5,30);
        JTextArea outputTextArea = new JTextArea();
-       outputTextArea.addKeyListener(sg);
+       outputTextArea.addKeyListener(listener);
        //outputTextArea = new JTextArea();
        JScrollPane areaScrollPane = new JScrollPane(outputTextArea); 
        areaScrollPane.setVerticalScrollBarPolicy(
@@ -95,65 +138,5 @@ public class SimpleGui implements KeyListener{
         System.out.print(message); 
         area.append(message);
     }
-
-    public void keyTyped(KeyEvent e) {
-        displayInfo(e, "KEY TYPED: ");
-    }
-
-    public void keyPressed(KeyEvent e) {
-        displayInfo(e, "KEY PRESSED: ");
-    }
-
-    public void keyReleased(KeyEvent e) {
-        displayInfo(e, "KEY RELEASED: ");
-    }
-    
-    private void displayInfo(KeyEvent e, String keyStatus){
-        
-        //You should only rely on the key char if the event
-        //is a key typed event.
-        int id = e.getID();
-        String keyString;
-        if (id == KeyEvent.KEY_TYPED) {
-            char c = e.getKeyChar();
-            keyString = "key character = '" + c + "'";
-        } else {
-            int keyCode = e.getKeyCode();
-            keyString = "key code = " + keyCode
-                    + " ("
-                    + KeyEvent.getKeyText(keyCode)
-                    + ")";
-        }
-        
-        int modifiersEx = e.getModifiersEx();
-        String modString = "extended modifiers = " + modifiersEx;
-        String tmpString = KeyEvent.getModifiersExText(modifiersEx);
-        if (tmpString.length() > 0) {
-            modString += " (" + tmpString + ")";
-        } else {
-            modString += " (no extended modifiers)";
-        }
-        
-        String actionString = "action key? ";
-        if (e.isActionKey()) {
-            actionString += "YES";
-        } else {
-            actionString += "NO";
-        }
-        
-        String locationString = "key location: ";
-        int location = e.getKeyLocation();
-        if (location == KeyEvent.KEY_LOCATION_STANDARD) {
-            locationString += "standard";
-        } else if (location == KeyEvent.KEY_LOCATION_LEFT) {
-            locationString += "left";
-        } else if (location == KeyEvent.KEY_LOCATION_RIGHT) {
-            locationString += "right";
-        } else if (location == KeyEvent.KEY_LOCATION_NUMPAD) {
-            locationString += "numpad";
-        } else { // (location == KeyEvent.KEY_LOCATION_UNKNOWN)
-            locationString += "unknown";
-        }
-    
-    }    
+ 
 }
