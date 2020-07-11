@@ -1,0 +1,65 @@
+public class InheritanceExample {
+    public static void main(String args[]) {
+        System.out.println("Heyyyo the program is running");
+
+        Person p1 = new Person();
+        Person p2 = new Person("David","Hu");
+
+        p1.printEverything();
+        p2.printEverything();
+
+        System.out.println("---------------------");
+        Teacher t1 = new Teacher();
+        t1.printEverything();
+        Teacher t2 = new Teacher("Masters Degree");
+        t2.printEverything();      
+    }
+}
+
+class Person {
+    public String firstName;
+    public String lastName;
+    private int ssn;
+    protected int age;
+
+    public Person() {
+        System.out.println("Person default/no-arg constructor called");
+        firstName = "John";
+        lastName = "Doe";
+        ssn = -1;
+        age = -1;
+
+    }
+
+    public Person(String firstName, String lastName) {
+        System.out.println("2-arg constructor called");
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public void printEverything() {
+        System.out.println("First Name: " + firstName);
+        System.out.println("Laste Name: " + lastName);
+        System.out.println("Age: " + age);
+        System.out.println("SSN: " + ssn);
+    }
+}
+
+class Teacher extends Person{
+
+    public String highestEducation;
+
+    public Teacher () {
+        
+        System.out.println("Teacher default/no-arg constructor called");
+        highestEducation = "None provided";
+    }
+
+    public Teacher (String hEducation) {
+        System.out.println("Teacher 1-arg constructor called");
+        highestEducation = hEducation;
+    }
+
+    // Thought Experiment?
+    // What if Teacher has a method called 'printEverything'??
+}
