@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.*; 
 import java.awt.*;
+import java.net.URL;
 public class SimpleGui {
 
     public static void main(String args[]){
@@ -116,8 +117,20 @@ public class SimpleGui {
        textPanel.add(areaScrollPane);
 
        JPanel directionButtonPanel=new JPanel();
-       JButton upButton = new JButton("UP");
-       JButton downButton = new JButton("DOWN");
+
+       ImageIcon upIcon = new ImageIcon("icons8-up-24.png");
+
+       JButton upButton = new JButton("UP", upIcon);
+
+
+       URL downIconUrl = null;
+       try {
+            downIconUrl = new URL("https://raw.githubusercontent.com/vdebroy/sta-spring20/master/icons8-down-arrow-25.png");
+       } catch (Exception ex) {
+           System.out.println("WHOOPS");
+       }
+       ImageIcon downIcon = new ImageIcon(downIconUrl);
+       JButton downButton = new JButton("DOWN",downIcon);
        JButton leftButton = new JButton("LEFT");
        JButton rightButton = new JButton("RIGHT");
 
@@ -146,6 +159,13 @@ public class SimpleGui {
        directionButtonPanel.add(downButton);
        directionButtonPanel.add(leftButton);
        directionButtonPanel.add(rightButton);
+
+       JPanel gridPanel = new JPanel();
+       JLabel colLabel1 = new JLabel("1");
+       JLabel colLabel2 = new JLabel("2");
+       gridPanel.add(colLabel1);
+       gridPanel.add(colLabel2);
+
 
        frame.getContentPane().add(BorderLayout.NORTH, textPanel);
        frame.getContentPane().add(BorderLayout.CENTER, directionButtonPanel);
