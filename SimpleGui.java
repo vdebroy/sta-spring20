@@ -5,6 +5,7 @@ public class SimpleGui {
 
     public static void main(String args[]){
 
+       JTextArea outputTextArea = new JTextArea();
        SimpleGui sg = new SimpleGui();
 
        JFrame frame = new JFrame("David's First Frame/Window");
@@ -15,7 +16,7 @@ public class SimpleGui {
        KeyListener listener = new KeyListener() {
         @Override
         public void keyPressed(KeyEvent event) {
-            printEventInfo("Key Pressed", event);
+            //printEventInfo("Key Pressed", event);
         }
         @Override
         public void keyReleased(KeyEvent event) {
@@ -23,12 +24,29 @@ public class SimpleGui {
         }
         @Override
         public void keyTyped(KeyEvent event) {
-            printEventInfo("Key Typed", event);
+            //printEventInfo("Key Typed", event);
         }
         private void printEventInfo(String str, KeyEvent e) {
-            System.out.println(str);
+            //System.out.println(str);
             int code = e.getKeyCode();
-            System.out.println("   Code: " + KeyEvent.getKeyText(code));
+            String getKeyText = KeyEvent.getKeyText(code);
+            //System.out.println("   Code: " + KeyEvent.getKeyText(code));
+
+            if (getKeyText == "Up") {
+                writeOutput("UP",outputTextArea);
+
+            }else if (getKeyText == "Down") {
+                writeOutput("DOWN",outputTextArea);
+            }else if (getKeyText == "Left") {
+                writeOutput("LEFT",outputTextArea);
+            }else if (getKeyText == "Right") {
+                writeOutput("RIGHT",outputTextArea);
+
+            }else {
+                System.out.println("Invalid key press");
+            }
+
+            /*
             System.out.println("   Char: " + e.getKeyChar());
             int mods = e.getModifiersEx();
             System.out.println("    Mods: "
@@ -36,6 +54,7 @@ public class SimpleGui {
             System.out.println("    Location: "
                     + keyboardLocation(e.getKeyLocation()));
             System.out.println("    Action? " + e.isActionKey());
+            */
         }
         private String keyboardLocation(int keybrd) {
             switch (keybrd) {
@@ -85,7 +104,8 @@ public class SimpleGui {
        JLabel outputLabel = new JLabel("Output");
 
        //JTextArea outputTextArea = new JTextArea(5,30);
-       JTextArea outputTextArea = new JTextArea();
+       //JTextArea outputTextArea = new JTextArea();
+       // How do we get to listen to keypresses anywhere in the frame?
        outputTextArea.addKeyListener(listener);
        //outputTextArea = new JTextArea();
        JScrollPane areaScrollPane = new JScrollPane(outputTextArea); 
