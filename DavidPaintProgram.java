@@ -96,28 +96,7 @@ public class DavidPaintProgram extends JFrame implements MouseListener, MouseMot
     @Override
     public void mouseClicked(MouseEvent event) {
         System.out.println("Mouse was clicked");
-   
-        /*
-        if (isDrawing == true ) {
-            isDrawing = false;
-        }else {
-            isDrawing = true;
-        }
-        */
-
         isDrawing = !isDrawing;
-        //
-        //a = condition? value if true : value if false
-        //isDrawing = isDrawing ? false : true;
-
-        // relative to component
-        //Point p1 = event.getPoint();
-        //System.out.println(p1.toString());
-
-        //currentX = (int)(p1.getX());
-        //currentY = (int)(p1.getY());
-
-        //repaint();
     }
  
     @Override
