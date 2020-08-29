@@ -9,21 +9,18 @@ public class DavidPaintProgram extends JFrame implements MouseListener, MouseMot
     int currentX;
     int currentY;
     boolean isDrawing = false;
+    //JPanel drawingPanel;
+    //JPanel colorPanel;
+
+    static Color drawingColor;
 
     public void paint (Graphics g) {
         //System.out.println("-------- BEGIN ---------");;
 
         Graphics2D g2d = (Graphics2D)g;
         Color backgroundColor = g2d.getBackground();
-
-        Color ourColor = new Color(100,200,50);
         //g2d.setBackground(ourColor);
-        g2d.setColor(ourColor);
-
-        //System.out.println("Background Color is: " + backgroundColor.toString());
-        //g2d.fill3DRect(50, 50, 100,  200, true);
-        //g2d.drawRoundRect(50,50,100,100,20,20);
-
+        g2d.setColor(drawingColor);
         
         if (previousX !=0 && currentX!=0) {
             if (isDrawing == true) {
@@ -70,9 +67,9 @@ public class DavidPaintProgram extends JFrame implements MouseListener, MouseMot
         addMouseMotionListener(this);
 
         previousX = previousY = currentX = currentY = 0;
+        drawingColor = new Color(100,200,50);
     }
     public static void main(String args[]) {
-
 
         DavidPaintProgram dpp = new DavidPaintProgram();
 
@@ -87,8 +84,29 @@ public class DavidPaintProgram extends JFrame implements MouseListener, MouseMot
 
         // Our drawing Panel
         JPanel drawingPanel = new JPanel();
-
+        //drawingPanel.setSize(600,400);
+        drawingPanel.add(new JLabel("Hola David"));
+        drawingPanel.add(new JButton("Test"));
         dpp.getContentPane().add(BorderLayout.NORTH, drawingPanel);
+
+        JPanel colorPanel = new JPanel();
+        JButton redColorButton = new JButton("Red");
+        redColorButton.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                    System.out.println("RED CLicked");
+                    drawingColor = Color.RED;
+            }                 
+        });
+        JButton blueColorButton = new JButton("Blue");
+        colorPanel.add(redColorButton);
+        colorPanel.add(blueColorButton);
+        blueColorButton.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                    System.out.println("BLUE CLicked");
+                    drawingColor = Color.blue;
+            }                 
+        });        
+        dpp.getContentPane().add(BorderLayout.CENTER, colorPanel);
 
         dpp.setSize(600,600);
         dpp.setVisible(true);
