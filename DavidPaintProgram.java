@@ -8,9 +8,10 @@ public class DavidPaintProgram extends JFrame implements MouseListener, MouseMot
     int previousY;
     int currentX;
     int currentY;
+    boolean isDrawing = false;
 
     public void paint (Graphics g) {
-        System.out.println("-------- BEGIN ---------");;
+        //System.out.println("-------- BEGIN ---------");;
 
         Graphics2D g2d = (Graphics2D)g;
         Color backgroundColor = g2d.getBackground();
@@ -23,11 +24,16 @@ public class DavidPaintProgram extends JFrame implements MouseListener, MouseMot
         //g2d.fill3DRect(50, 50, 100,  200, true);
         //g2d.drawRoundRect(50,50,100,100,20,20);
 
-        if (previousX !=0 && currentX!=0) 
-            g2d.drawLine(previousX,previousY,currentX,currentY); 
+        
+        if (previousX !=0 && currentX!=0) {
+            if (isDrawing == true) {
+                g2d.drawLine(previousX,previousY,currentX,currentY); 
+            }
+        }
         previousX = currentX;
         previousY=currentY;
-        System.out.println("-------- END ---------");
+       
+        //System.out.println("-------- END ---------");
 
     }
 
@@ -66,6 +72,8 @@ public class DavidPaintProgram extends JFrame implements MouseListener, MouseMot
         previousX = previousY = currentX = currentY = 0;
     }
     public static void main(String args[]) {
+
+
         DavidPaintProgram dpp = new DavidPaintProgram();
 
         System.out.println(dpp.toString());
@@ -89,14 +97,27 @@ public class DavidPaintProgram extends JFrame implements MouseListener, MouseMot
     public void mouseClicked(MouseEvent event) {
         System.out.println("Mouse was clicked");
    
+        /*
+        if (isDrawing == true ) {
+            isDrawing = false;
+        }else {
+            isDrawing = true;
+        }
+        */
+
+        isDrawing = !isDrawing;
+        //
+        //a = condition? value if true : value if false
+        //isDrawing = isDrawing ? false : true;
+
         // relative to component
-        Point p1 = event.getPoint();
-        System.out.println(p1.toString());
+        //Point p1 = event.getPoint();
+        //System.out.println(p1.toString());
 
-        currentX = (int)(p1.getX());
-        currentY = (int)(p1.getY());
+        //currentX = (int)(p1.getX());
+        //currentY = (int)(p1.getY());
 
-        repaint();
+        //repaint();
     }
  
     @Override
@@ -109,7 +130,7 @@ public class DavidPaintProgram extends JFrame implements MouseListener, MouseMot
     }
     @Override
     public void mousePressed(MouseEvent event) {
-        //System.out.println("Mouse was pressed");
+        System.out.println("Mouse was pressed");
     }
     @Override
     public void mouseReleased(MouseEvent event) {
@@ -124,7 +145,7 @@ public class DavidPaintProgram extends JFrame implements MouseListener, MouseMot
         //System.out.println("Mouse was moved");
 
         Point p1 = event.getPoint();
-        System.out.println(p1.toString());
+        //System.out.println(p1.toString());
 
         currentX = (int)(p1.getX());
         currentY = (int)(p1.getY());
