@@ -1,0 +1,44 @@
+import java.util.*;
+public class HelloWorld{
+
+     public static void main(String []args){
+        System.out.println("Hello World");
+        
+        printCharacterMap("Hello David");
+     }
+     
+    public static void printCharacterMap(String inputString) {
+    HashMap <Character,Integer> characterMap = new HashMap<Character,Integer>();
+
+    // Loop over the characters in input String
+    for (int i=0; i< inputString.length();i++) {
+        char currentCharacter = inputString.charAt(i);
+        //System.out.println(currentCharacter);
+        
+        // Check to see if the character exists in the characterMap
+        Integer currentCountOfCharacter = characterMap.get(currentCharacter);
+        if (currentCountOfCharacter == null) {
+            //System.out.println(currentCharacter + "------ Doesn't exist");
+            //If it doesn't
+                // Put the character in the map and set the value to 1
+                // Because we are seeing it for the first time
+                
+                characterMap.put(currentCharacter,1);
+        }else {
+            //System.out.println(currentCharacter+ " ------Exists");
+            //If it does
+                // Get the current value
+                // Increase it by 1
+                // Add it back to the Map so this latest value is now 
+                // the current value for that character
+                
+                characterMap.put(currentCharacter, currentCountOfCharacter+1);
+        }
+        }
+    
+    for (Map.Entry<Character,Integer> entry : characterMap.entrySet())  
+            System.out.println(entry.getKey() + 
+                             ":  " + entry.getValue()); 
+    
+    }     
+}
