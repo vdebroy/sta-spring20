@@ -1,0 +1,65 @@
+public class Main {
+    public static void main(String args[]) {
+
+    int numFlowers = 4;
+    int[] numPetalsPerFlower = new int[numFlowers];
+    
+    numPetalsPerFlower[0] = 1;
+    numPetalsPerFlower[1] = 1;
+    numPetalsPerFlower[2] = 2;
+    numPetalsPerFlower[3] = 3;
+    
+    int numberOfPhotosWithAvgFlower = 0;
+    
+    // For every pair of flowers (i,j)
+    // Loop for i
+    
+    for (int i=0;i<numFlowers;i++) {
+        int numPetalsInPhoto = 0;
+        // Loop for j (Such that j is greater than or equal to i)
+        
+        for (int j=i;j<numFlowers;j++) {
+            
+            // Be careful of indices
+            //  System.out.println("Pair: (" + i + "," + j + ")");
+            //System.out.println("Pair: (" + (i+1) + "," + (j+1) + ")");
+            
+            // Take a photo
+            // of all flowers i through j (inclusive)
+            
+            // Look at all the flowers in that photo
+            // Count the total number of petals            
+            numPetalsInPhoto += numPetalsPerFlower[j];
+            
+            int numFlowersInPhoto = (j-i+1);
+            
+            //System.out.println("Num Flowers in photo: " + numFlowersInPhoto);
+            //System.out.println("Num Petals in photo: " + numPetalsInPhoto);
+            
+            // Find the average
+            
+            double averageNumPetalsInPhoto = ((double)numPetalsInPhoto)/numFlowersInPhoto;
+            //System.out.println("Avg num petals in photo: " + averageNumPetalsInPhoto);
+            
+            // Then compare average against each flower * in the photo *
+            // If any of the flowers match, then the photo has an average flower         
+            
+            for (int k=i;k<=j;k++) {
+                //System.out.println("Num petals in flower: " + (k+1) + "---> " + numPetalsPerFlower[k]);
+                if (averageNumPetalsInPhoto == numPetalsPerFlower[k]) {
+                    //System.out.println("AVERAGE FLOWER IN PHOTO FOUND!");
+                    numberOfPhotosWithAvgFlower++;
+                    System.out.println("Pair: (" + (i+1) + "," + (j+1) + ")");
+                    // Be careful not to have duplicate counts
+                    // For example if more than one flower is average
+                    break;
+                }
+            }
+        }
+    }
+    
+    System.out.println("Num photos with an average flower: "+numberOfPhotosWithAvgFlower) ;
+
+    
+    }
+}
